@@ -133,8 +133,10 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(intent);
                         if(score>storedScore) {
                             storedScore = score;
+                            userName1=userName;
                             sharedPreferences.edit().putInt("storedScore", score).apply();
-                            puanText.setText("En Yüksek Puan: "+ storedScore);
+                            sharedPreferences.edit().putString("userName",userName1).apply();
+                            puanText.setText("En Yüksek Puan: "+ userName1+" : "+storedScore);
                         }
                     }
                 });
@@ -148,8 +150,8 @@ public class MainActivity extends AppCompatActivity {
                             storedScore = score;
                             sharedPreferences.edit().putInt("storedScore", score).apply();
                             userName1=userName;
-                            sharedPreferences.edit().putString("userName",userName1);
-                            puanText.setText("En Yüksek Puan: "+ userName1+": "+storedScore);
+                            sharedPreferences.edit().putString("userName",userName1).apply();
+                            puanText.setText("En Yüksek Puan: "+ userName1+" : "+storedScore);
                             Toast.makeText(MainActivity.this, "Tebrikler Yeni Rekor!", Toast.LENGTH_SHORT).show();
                         }
                     }
